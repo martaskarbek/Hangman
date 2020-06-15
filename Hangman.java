@@ -24,6 +24,7 @@ public class Hangman
             HangmanGame.newGame();
             HangmanGame.Game();
         }
+
         public void HangmanPrinting() {
             if (lives == 6) {
                 System.out.println("\n\n\n\n\n\n=========");
@@ -44,6 +45,7 @@ public class Hangman
                 System.out.println("   +---+" +"\n" + "   |  |" + "\n" + "   O  |" + "\n" + "  /|\\ |" + "\n" + "  /   |" + "\n" + "      |" + "\n" + "=========");
             }
         }
+
         public void DoRestart() {
             try (Scanner reset = new Scanner(System.in)) {
                 System.out.println("\nDo you want to play again? Y/N ");
@@ -56,6 +58,7 @@ public class Hangman
                     System.exit(0);
                 }}
         }
+
         public void WrongAnswear() {
             System.out.println("\nNeed to keep guessing");
             System.out.println("\n" + WrongAnswears);
@@ -66,6 +69,7 @@ public class Hangman
             System.out.println("\nYou have => " + lives + " left.");
             System.out.println(DashedCapital);
         }
+
         public void Game() {
         try (Scanner input = new Scanner(System.in)) {
             for (int i = 0; i < randomCapital.length(); i++) {
@@ -114,15 +118,16 @@ public class Hangman
                         System.out.println("\n" + randomCapital);
                         System.out.println("\nYou won!");
                         DoRestart();
-                        }
-            }}
-            
-        }
-        public void newGame() {
-            lives = 7;
-            guessedValue = 0;
-            WrongAnswears.clear();
-            GoodAnswears.clear();
+                    }
+            }
+        }    
+    }
+
+    public void newGame() {
+        lives = 7;
+        guessedValue = 0;
+        WrongAnswears.clear();
+        GoodAnswears.clear();
         }
     public static void main(final String[] args) {
         System.out.println("Welcome to Hangman Game");
