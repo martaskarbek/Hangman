@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Random;
 import java.util.Scanner;
 import java.lang.reflect.Array;
@@ -5,7 +9,10 @@ import java.util.ArrayList;
 
 public class Hangman
 {
-    final String[] Capitals = { "Warszawa", "Rzym", "Krakow" };
+    Capitals capitals = new Capitals();
+
+    final String[] Capitals = capitals.capitalsRead();
+    final String[] Countries = capitals.countriesRead();
 
         final Random Capital = new Random();
         final int random = Capital.nextInt(Capitals.length);
@@ -109,6 +116,9 @@ public class Hangman
                                 }}
                         WrongAnswear();
                     }
+                    if (lives <= 4) {
+                        System.out.println("You look for capital of " + Countries[CapitalLen]);
+                    }
                     if (lives <= 0) {
                         System.out.println("\nYou loose, correct answear was => " + randomCapital + ".");
                         System.out.print(Hangman);
@@ -130,6 +140,7 @@ public class Hangman
         GoodAnswears.clear();
         }
     public static void main(final String[] args) {
+
         System.out.println("Welcome to Hangman Game");
         final Hangman HangmanGame = new Hangman();
         HangmanGame.newGame();
